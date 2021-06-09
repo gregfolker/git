@@ -9,7 +9,7 @@ echo "Running ${INSTALL_SCRIPT}..."
 
 if [[ -e ${GITCONFIG} ]] ; then
    echo "Creating a backup of ${GITCONFIG} as ${GITCONFIG}-old..."
-   mv ${VIMRC} ${VIMRC}-old
+   mv ${GITCONFIG} ${GITCONFIG}-old
 fi
 
 touch ${GITCONFIG} && ln -sf "${PWD}/.gitconfig" ${GITCONFIG} && echo "Successfully installed global git configuration"
