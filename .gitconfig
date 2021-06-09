@@ -1,7 +1,7 @@
 [core]
    filemode = false
    autocrlf = input
-	editor = vim
+   editor = vim
 [color]
    ui = true
 [user]
