@@ -1,7 +1,41 @@
+[core]
+	filemode = false
+	autocrlf = input
+	editor = vim
+[color]
+	ui = true
 [user]
-	name = gregfolker
-	email = greg.folker@pm.me
+	name = Greg Folker
+	email = gregfolker.dev@gmail.com
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
-[core]
-	editor = vim
+[push]
+   default = simple
+[alias]
+   st = status
+   ft = fetch --all
+   psh = push origin HEAD --force-with-lease
+   pll = pull --rebase --ff
+   ls = log --oneline
+   lsbr = branch -vv
+
+   # `git ca` takes all changes in the current working directory, adds them to the previous commit, and amends it
+   ca = commit --amend -C HEAD
+
+   # `git cam` is identical to `git ca` but allows the user to edit the commit message
+   cam = commit --amend -c HEAD
+
+   # `git br <new-branch>` creates a new local branch that tracks `origin/main`
+   br = "!f() { git checkout -b $1 --track origin/main;  }; f"
+
+   # `git co <branch>` switches to an existing local branch
+   co = "!f() { git checkout -B $1; }; f"
+
+   # `git copr <remote-branch>` checkouts a new local branch, pulls a remote branch into it, and sets the upstream tracking branch to `origin/main`
+   copr = "!f() { git checkout -b $1 && git pull origin $1 --rebase --ff --no-commit && git branch --set-upstream-to=origin/main; }; f"
+
+   # `git rmbr <branch1>...<branchN>` force deletes all of the specified local branches
+   rmbr = "!f() { git branch -D $@; }; f"
+
+   # `git rma` removes all local branches that have already been merged into `main`
+   rma = "!f() { git branch --merged ${1-main} | grep -v ' ${1-main}$' | xargs -r git branch -d 2> /dev/null; }; f"
