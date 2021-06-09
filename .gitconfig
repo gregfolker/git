@@ -19,6 +19,10 @@
    ls = log --oneline
    lsbr = branch -vv
 
+   # `git c <file1>...<fileN>` adds the file to the staging area and creates a new commit
+   # @note - `git c .` does this for  all changes in the current working directory
+   c = "!f() { git add $@ && git commit; }; f"
+
    # `git ca` takes all changes in the current working directory, adds them to the previous commit, and amends it
    ca = commit --amend -C HEAD
 
