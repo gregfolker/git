@@ -1,14 +1,14 @@
 [core]
-	filemode = false
-	autocrlf = input
+   filemode = false
+   autocrlf = input
 	editor = vim
 [color]
-	ui = true
+   ui = true
 [user]
-	name = Greg Folker
-	email = gregfolker.dev@gmail.com
+   name = Greg Folker
+   email = gregfolker.dev@gmail.com
 [url "ssh://git@github.com/"]
-	insteadOf = https://github.com/
+   insteadOf = https://github.com/
 [push]
    default = simple
 [alias]
