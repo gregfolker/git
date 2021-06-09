@@ -35,8 +35,8 @@
    # `git co <branch>` switches to an existing local branch
    co = "!f() { git checkout -B $1; }; f"
 
-   # `git copr <remote-branch>` checkouts a new local branch, pulls a remote branch into it, and sets the upstream tracking branch to `origin/main`
-   copr = "!f() { git checkout -b $1 && git pull origin $1 --rebase --ff --no-commit && git branch --set-upstream-to=origin/main; }; f"
+   # `git corb <remote-branch>` checkouts a new local branch, pulls a remote branch into it, and sets the upstream tracking branch to `origin/main`
+   corb = "!f() { git checkout -b $1 && git pull origin $1 --rebase --ff --no-commit && git branch --set-upstream-to=origin/main; }; f"
 
    # `git rmbr <branch1>...<branchN>` force deletes all of the specified local branches
    rmbr = "!f() { git branch -D $@; }; f"
